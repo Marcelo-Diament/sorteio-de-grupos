@@ -10,7 +10,7 @@ const controller = {
   listarAlunos: (req, res) => {
 
     // Listando todos os alunuos
-    const alunos = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'alunos.json')))
+    const alunos = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'alunos-sem-grupo.json')))
 
     // Retornando todos os alunos
     res.send(alunos)

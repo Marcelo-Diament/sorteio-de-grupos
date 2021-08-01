@@ -1,5 +1,5 @@
 // Importa o JSON de alunos
-const alunos = require('./data/alunos.json')
+const alunos = require('./data/alunos-sem-grupo.json')
 
 // Objeto a ser exportado
 const config = {}
