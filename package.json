@@ -1,0 +1,27 @@
+{
+  "name": "sorteio-de-grupos",
+  "version": "0.1.0",
+  "description": "Sorteio de grupos",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run start --prefix server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Marcelo-Diament/sorteio-de-grupos.git"
+  },
+  "keywords": [
+    "js",
+    "express",
+    "node",
+    "sorteio",
+    "grupos"
+  ],
+  "author": "Marcelo Diament",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Marcelo-Diament/sorteio-de-grupos/issues"
+  },
+  "homepage": "https://github.com/Marcelo-Diament/sorteio-de-grupos#readme"
+}
