@@ -9,11 +9,20 @@ const path = require('path')
 const controller = {
   listarAlunos: (req, res) => {
 
+    // Resposta a ser retornada
+    let response = '<h1>Ops... Não há nenhum grupo registrado ainda...</h1>'
+
     // Listando todos os alunuos
     const alunos = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'alunos-sem-grupo.json')))
 
+    // Se houver alunos registrados...
+    if (alunos.length) {
+      // Atualizamos a resposta para retornar esses alunos
+      response = alunos
+    }
+
     // Retornando todos os alunos
-    res.send(alunos)
+    res.send(response)
   },
   sortearGrupos: (req, res) => {
 
@@ -46,10 +55,16 @@ const controller = {
     // Listando todos os grupos
     const gruposPreDefinidos = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'grupos-predefinidos.json')))
 
-    // Caso não haja grupos em grupos.json...
+    // Caso haja grupos em grupos.json...
     if (todosOsGrupos.length) {
+
+      // Atualizamos a resposta
       response = todosOsGrupos
+
+      // Caso não haja grupos mas haja grupos pré definidos
     } else if (gruposPreDefinidos.length) {
+
+      // ...atualizamos a resposta também
       response = gruposPreDefinidos
     }
     // Retornando todos os grupos
