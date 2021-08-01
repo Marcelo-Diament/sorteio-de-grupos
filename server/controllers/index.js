@@ -37,11 +37,23 @@ const controller = {
   },
   listarGrupos: (req, res) => {
 
+    // Resposta a ser retornada
+    let response = '<h1>Ops... Não há nenhum grupo registrado ainda...</h1>'
+
     // Listando todos os grupos
     const todosOsGrupos = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'grupos.json')))
 
+    // Listando todos os grupos
+    const gruposPreDefinidos = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'grupos-predefinidos.json')))
+
+    // Caso não haja grupos em grupos.json...
+    if (todosOsGrupos.length) {
+      response = todosOsGrupos
+    } else if (gruposPreDefinidos.length) {
+      response = gruposPreDefinidos
+    }
     // Retornando todos os grupos
-    res.send(todosOsGrupos)
+    res.send(response)
   }
 }
 
