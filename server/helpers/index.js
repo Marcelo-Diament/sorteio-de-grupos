@@ -38,11 +38,13 @@ helpers.sortearGrupos = () => {
   // Ao adicionar um aluno, o mesmo é removido do array embaralhado de alunos
   let resultado = grupos.map(grupo => grupo = alunosEmbaralhados.splice(0, alunosPorGrupo))
 
-  // Enquanto sobrar alunos sem grupo...
-  while (alunosEmbaralhados.length)
-    // ...o aluno é adicionado aos grupos já preenchidos (começando pelo primeiro, de um em um - jamais chegará no último)
-    resultado[alunosEmbaralhados.length - 1].push(alunosEmbaralhados.shift())
-
+  // Se sobrar aluno sem grupo...
+  if (alunosEmbaralhados.length) {
+    // Enquanto sobrar alunos sem grupo...
+    while (alunosEmbaralhados.length)
+      // ...o aluno é adicionado aos grupos já preenchidos (começando pelo primeiro, de um em um - jamais chegará no último)
+      resultado[alunosEmbaralhados.length - 1].push(alunosEmbaralhados.shift())
+  }
   // Retorna o array de grupos de alunos (também são arrays)
   return resultado
 }
