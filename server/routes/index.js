@@ -9,6 +9,8 @@ const controller = require('../controllers')
 router.get('/sortear-grupos', controller.sortearGrupos)
 // Rota para listar todos os grupos salvos
 router.get('/grupos', controller.listarGrupos)
+// Rota para listar todos os grupos salvos
+router.get('/grupos-pre-definidos', controller.listarGruposPreDefinidos)
 // Rota para listar todos os alunos
 router.get('/alunos', controller.listarAlunos)
 
