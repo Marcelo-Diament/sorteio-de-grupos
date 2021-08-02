@@ -10,10 +10,10 @@ const controller = {
   listarAlunos: (req, res) => {
 
     // Resposta a ser retornada
-    let response = '<h1>Ops... Não há nenhum grupo registrado ainda...</h1>'
+    let response = '<h1>Ops... Não há nenhum aluno registrado ainda...</h1>'
 
-    // Listando todos os alunuos
-    const alunos = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'alunos-sem-grupo.json')))
+    // Listando todos os alunos
+    const alunos = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'alunos.json')))
 
     // Se houver alunos registrados...
     if (alunos.length) {
@@ -22,6 +22,23 @@ const controller = {
     }
 
     // Retornando todos os alunos
+    res.send(response)
+  },
+  listarAlunosSemGrupo: (req, res) => {
+
+    // Resposta a ser retornada
+    let response = '<h1>Ops... Não há nenhum aluno sem grupo...</h1>'
+
+    // Listando todos os alunos sem grupo
+    const alunosSemGrupo = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'alunos-sem-grupo.json')))
+
+    // Se houver alunos sem grupo registrados...
+    if (alunosSemGrupo.length) {
+      // Atualizamos a resposta para retornar esses alunos sem grupo
+      response = alunosSemGrupo
+    }
+
+    // Retornando todos os alunos sem grupo
     res.send(response)
   },
   sortearGrupos: (req, res) => {
